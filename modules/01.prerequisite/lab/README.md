@@ -27,9 +27,14 @@ This work is a part of the continuous assessment of this course. It will be the 
 
 ## 1. Working groups (easy level)
 
-Team yourself with another colleague. Only groups of two will be created. In the event of an odd number of students, one and only one group of three people is created.
+Team yourself with another colleague. In the event of an odd number of students, one and only one group of three people is created. Give your group to your teacher so he can assign you a number.
 
-Create a private Git repository on GitHub for your group. Name it `ece-webapp-{alastname}-{blastname}`, where lastname is sorted alphanumerically. Be ready to share the link during the course.
+Create the Git repository that you will be using for the **whole course** (project included). The repository must be:
+
+- hosted on GitHub
+- private
+- named as `ece-webtech-grXX-XX`, using the number assigned by your teacher
+- shared to your teacher and the other member of your binôme
 
 ## 2. GitHub project subscription (easy level)
 
@@ -58,8 +63,6 @@ curl -L https://git.io/n-install | bash
 ```
 
 **Don't install Node.js with your package manager.**
-
-For those choosing the Windows path, you can stick with the official installer.
 
 ## 5. Feed yourself (medium level)
 
