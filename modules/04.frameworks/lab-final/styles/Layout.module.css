@@ -1,0 +1,43 @@
+.container {
+  padding: 0;
+}
+
+.main {
+  min-height: 100vh;
+  padding: 4rem 20%;
+}
+
+.header {
+  background-color: white;
+  color:  black;
+  padding: 2rem 5rem;
+  display: flex;
+}
+.logo {
+  flex-grow: 1;
+}
+.menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  gap: 2rem;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  justify-content: center;
+  align-items: center;
+  color:  black;
+  background-color: white;
+  text-align: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
