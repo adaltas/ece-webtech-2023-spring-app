@@ -12,10 +12,10 @@ duration: 1h
 
 Suggested tutorials:
 
-* JavaScript - <https://www.codecademy.com/learn/introduction-to-javascript>
-* JavaScript - <https://openclassrooms.com/en/courses/6175841-apprenez-a-programmer-avec-javascript>
-* HTML - <https://www.codecademy.com/learn/learn-html>
-* CSS - <https://www.codecademy.com/learn/learn-css>
+* JavaScript - https://www.codecademy.com/learn/introduction-to-javascript
+* JavaScript - https://openclassrooms.com/en/courses/6175841-apprenez-a-programmer-avec-javascript
+* HTML - https://www.codecademy.com/learn/learn-html
+* CSS - https://www.codecademy.com/learn/learn-css
 * ... or google any other tutorial
 
 ## Client vs Server
@@ -46,7 +46,6 @@ Suggested tutorials:
 ## SSL/TLS & HTTPS
 
 (Secure Sockets Layer / Transport Layer Security)
-
 * Establish an encrypted link over a network
 * Exchange of public & private keys to secure the exchange
   * Server sends SSL certificate + public key
@@ -140,19 +139,19 @@ Suggested tutorials:
 
 ## Editors, IDE
 
-As a developer, the terminal is your partner and the editor is your best friend:
+As a developer, the terminal is your partner and the editor is your best friend: 
 
-* [Vim](https://www.vim.org/) (Linux, macOS, Windows)  
+* [Vim](https://www.vim.org/) (Linux, macOS, Windows)   
   Free, one of the most powerful, many will say the most powerful, single file or project-oriented.
-* [VsCode](https://code.visualstudio.com/) (Linux, macOS, Windows)  
+* [VsCode](https://code.visualstudio.com/) (Linux, macOS, Windows)   
   Free most popular editor, most active community, and plugins development
-* [Atom](https://atom.io/) (Linux, macOS, Windows)  
+* [Atom](https://atom.io/) (Linux, macOS, Windows)   
   Free project-oriented, minimalist, and productive UI (my day-to-day favorite editor), slow and memory hungry, no longer supported, ... but so good
-* [Sublime Text](https://www.sublimetext.com/) (Linux, macOS, Windows)  
+* [Sublime Text](https://www.sublimetext.com/) (Linux, macOS, Windows)   
   Free, very fast, single file or project-oriented
-* [BBedit](https://www.barebones.com/products/bbedit/) (macOS)  
+* [BBedit](https://www.barebones.com/products/bbedit/) (macOS)   
   A free version very powerful, very fast
-* [Notepad++](https://notepad-plus-plus.org/) Windows)  
+* [Notepad++](https://notepad-plus-plus.org/) Windows)   
   Free, almost a Windows standard, powerful and fast
 * [WebStorm](https://www.jetbrains.com/webstorm/) (Linux, macOS, Windows)
   Licensed, 30 days trial
@@ -190,8 +189,8 @@ As a developer, the terminal is your partner and the editor is your best friend:
 
 ## JSON
 
-* JSON is a subset of JavaScript, JavaScript is built upon JSON
-* Data format
+- JSON is a subset of JavaScript, JavaScript is built upon JSON
+- Data format
 
 Valid JavaScript:
 
@@ -255,7 +254,7 @@ Valid JSON:
 
 ## Learning
 
-* [Kahn academy](https://www.khanacademy.org/)  
+* [Kahn academy](https://www.khanacademy.org/)   
   Free, it is a non-profit relying on donations.
-* [Codecademy](https://www.codecademy.com)  
+* [Codecademy](https://www.codecademy.com)   
   Free with a commercial offering.

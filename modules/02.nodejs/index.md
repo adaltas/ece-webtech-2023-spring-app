@@ -12,8 +12,8 @@ We will finally initiate the use of git and GitHub. We'll also cover package bes
 
 * Developed in 1995 at Netscape
 * Shipped with IE3 in 1996 as JScript
-* Standardized with EcmaScript (ES) v1 in 1997  
-  <https://en.wikipedia.org/wiki/ECMAScript>
+* Standardized with EcmaScript (ES) v1 in 1997   
+  https://en.wikipedia.org/wiki/ECMAScript
 * No relation to Java
 * Rediscovered with Ajax around 2005 (Gmail, Maps…)
 * Multi-paradigm: scripting, object-oriented, functional, imperative, event-driven
@@ -22,18 +22,18 @@ We will finally initiate the use of git and GitHub. We'll also cover package bes
 
 ## Node.JS
 
-* JavaScript runtime for server-side scripting  
-  <https://nodejs.org/en/>
-* Created in 2009 by Ryan Dahl, now working on Deno  
-  <https://deno.land/>
-* Uses Google's V8 JavaScript Engine  
-  <https://v8.dev/>
-* Package management using NPM  
-  <https://www.npmjs.com/>
+* JavaScript runtime for server-side scripting   
+  https://nodejs.org/en/
+* Created in 2009 by Ryan Dahl, now working on Deno   
+  https://deno.land/
+* Uses Google's V8 JavaScript Engine   
+  https://v8.dev/
+* Package management using NPM   
+  https://www.npmjs.com/
 * Asynchronous IO
 * Unix philosophy of small components
 
-## NPM
+## NPM 
 
 * Package manager for Node.JS
 * Developed by Isaac Z. Schlueter
@@ -59,7 +59,7 @@ We will finally initiate the use of git and GitHub. We'll also cover package bes
 
 ## Dependency management in Node.js
 
-* Download and install existing packages
+* Download and install existing packages 
 * State versions used by your app
 * Not reinvent the wheel
 * Participate in the community of Node.js
@@ -82,7 +82,7 @@ yarn add package_name [--dev]
 
 ## Node.js module
 
-* What we call a library in other languages
+* What we call a library in other languages 
 * One or more `.js` files doing something
 * Module content is "exported"
 
@@ -91,27 +91,24 @@ yarn add package_name [--dev]
 ## CommonJS module `.cjs`
 
 * Use
-
-  ```js
+  ```javascript
   module.exports = ...
   ```
 
 * Export anything: a function, an array, an object...
-
-  ```js
+  ```javascript
   // for an object
   module.exports = {
     a: ...,
     b: ...
-  };
-  // or
-  module.exports.a = ...;
-  module.exports.b = ...;
+  }
+  // or 
+  module.exports.a = ...
+  module.exports.b = ...
   ```
 
 * Import in another file: (NB: **no extension**)
-
-  ```js
+  ```javascript
   const my_mod = require('mypath/to/my_file')
   ```
 
@@ -120,16 +117,16 @@ yarn add package_name [--dev]
 * Use
 
   ```js
-  export default my_obj;
-  export {my_prop};
+  export default my_obj
+  export {my_prop}
   ```
 
 * Import in another file
 
   ```js
-  import my_obj from '/path/to/file.js';
+  import my_obj from '/path/to/file.js'
   # or
-  import {my_prop} from '/path/to/file.js';
+  import {my_prop} from '/path/to/file.js'
   ```
 
 ## `package.json` file
@@ -139,7 +136,6 @@ It stores a module's information:
 * `name`, `description`, `version`, `license` and `private`
 * `dependencies` and `devDependencies`
 * scripts and commands
-
 ```json
 {
   "name": "ece-webtech",
@@ -163,8 +159,7 @@ yarn init
 
 ## Dependencies declaration
 
-* `dependencies`: necessary to make your app run
-
+* `dependencies`: necessary to make your app run   
   ```js
   { "dependencies": {
     "foo": "1.0.0", // Version 1.0.0 exactly
@@ -178,7 +173,7 @@ yarn init
     "tar": "http://web.site/my.tar.gz"
   }}
   ```
-
+  
 * `devDependencies`: only necessary for development (test runners, documentation framework, ...)
 
 [package.json doc](https://docs.npmjs.com/files/package.json)
@@ -187,24 +182,31 @@ yarn init
 
 * [Semantic Versionning](https://semver.org/)
 * Version `X.Y.Z`
-  * `X` = Major, breaking changes
-  * `Y` = Minor, new features and backward compatible
-  * `Z` = Patch, bug fixing
+  - `X` = Major, breaking changes
+  - `Y` = Minor, new features and backward compatible 
+  - `Z` = Patch, bug fixing
 * Version `0.Y.Z` = unitial dev, unstable
 
 ## Deterministic installs with lock files
 
-* `package-lock.json` for NPM
+* `package-lock.json` for NPM 
 * `yarn.lock` for YARN
 * Fixes dependency versions
 * Avoids the **"but it works on my computer!"** situation
 
-## Callback functions
+## Asynchronous programming
 
-* What makes JavaScript and Node.js asynchronous
-* It is called at the completion of a given task
+* Use only one core CPU
+* No CPU waiting during IO operations (network, file system access)
+* Maximize CPU usage
+* More efficient than multi-threading
 * Prevents any blocking
 * Allows other code to be run in the meantime
+* JavaScript native
+
+### Callback functions 
+
+A function is called at the completion of a given task
 
 [Read more about callback functions](https://nodejs.org/en/knowledge/getting-started/control-flow/what-are-callbacks/)
 
@@ -224,7 +226,9 @@ login(username, password, function(err, success) {
 })
 ```
 
-Promise syntax:
+### Promise object
+
+An object is returned with the possibility to register callback functions on success and on error. It is designed to avoid spaghetti callback hell.
 
 ```js
 function login (username, password) {
@@ -246,7 +250,9 @@ login(username, password)
 })
 ```
 
-Async syntax:
+### Async/await syntax
+
+Syntactic sugar on top of the promise object.
 
 ```js
 function async login (username, password) {
@@ -269,7 +275,7 @@ try{
 
 ## Routing
 
-* Define endpoints to serve multiple pages
+* Define endpoints to serve multiple pages 
 * A route = an URL [+ parameters] + a handler
 * Use Node.js native `url` module to parse `req.url`
 
@@ -279,11 +285,9 @@ try{
 * After the `?`
 * Separated by `&`
 * Formatted as `key=value`
-
-  ```txt
+  ```
   http://my.site/my/page.html?username=toto&password=lulu
   ```
-
 * Parseable with node's `querystring` module on URL's query property
 
 ## Nodemon
@@ -298,7 +302,7 @@ try{
 * Written in Markdown
 * Should contain:
   * Short introduction
-  * Installation instructions
+  * Installation instructions 
   * Usage instruction with simple (and advanced) examples
   * List of contributors
 

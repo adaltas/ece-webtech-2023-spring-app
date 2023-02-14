@@ -31,7 +31,7 @@ Ensure our project adheres to community good practices. This includes:
 
 Continue with the existing code base from the completed previous lab. In case you didn't finish it, clone the [corrections repository](../../../../README.md#correction-repositories-and-supporting-source-code), check out the corresponding `labX` tag and start from there. Later on, you must complete the missing lab by referring to the corrections.
 
-## 1. Refactor your previous application to use Express
+## Part 1. Refactor your previous application to use Express
 
 1. [Install Express](https://www.npmjs.com/package/express#installation)
 2. Read the [basic routing documentation](http://expressjs.com/en/starter/basic-routing.html).
@@ -39,7 +39,7 @@ Continue with the existing code base from the completed previous lab. In case yo
 4. Use [Postman](https://www.postman.com/) or [Swagger Inspector](https://inspector.swagger.io) or `curl` Bash command to manually test your application. Choose your preference.
 5. Commit your changes following [Conventional Commits](https://www.conventionalcommits.org)
 
-## 2. Build an API
+## Part 2. Build an API
 
 ### 2.1. Prepare an example database model
 
@@ -98,10 +98,10 @@ const article = db.articles.find( article => article.id === searchId)
 
 4. Don't forget to commit and push by following [Conventional Commits](https://www.conventionalcommits.org).
 
-## 3. Bonus - cover your API with tests
+## Part 3. Bonus - cover your API with tests
 
 Install [Mocha](https://mochajs.org/#installation) and cover your API with tests using [SuperTest](https://www.npmjs.com/package/supertest) package.
 
-## 4. Learn about GraphQL
+## Part 4. Learn about GraphQL
 
 Read about the [main advantages of GraphQL as an alternative to REST](https://www.adaltas.com/en/2018/11/27/graphql-advantages-over-rest/).

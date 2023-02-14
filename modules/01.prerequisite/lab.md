@@ -25,22 +25,17 @@ Gain knowledge in all the prerequisites:
 
 This work is a part of the continuous assessment of this course. It will be the basis for your final project. Your final grade will be calculated based on the final project’s result and your Git history.
 
-## 1. Working groups (easy level)
+## Part 1. Working groups (easy level)
 
-Team yourself with another colleague. In the event of an odd number of students, one and only one group of three people is created. Give your group to your teacher so he can assign you a number.
+Team yourself with another colleague. Only groups of two will be created. In the event of an odd number of students, one and only one group of three people is created.
 
-Create the Git repository that you will be using for the **whole course** (project included). The repository must be:
+Create a private Git repository on GitHub for your group. Name it `ece-webapp-{alastname}-{blastname}`, where lastname is sorted alphanumerically. Be ready to share the link during the course.
 
-- hosted on GitHub
-- private
-- named as `ece-webtech-grXX-XX`, using the number assigned by your teacher
-- shared to your teacher and the other member of your binôme
-
-## 2. GitHub project subscription (easy level)
+## Part 2. GitHub project subscription (easy level)
 
 Navigate to this course repository and subscribe to it by selecting `Watch > All Activity`.
 
-## 3. Work environment (medium level)
+## Part 3. Work environment (medium level)
 
 When running Windows, download a Linux VM. macOS users don't need a virtual machine.
 
@@ -52,11 +47,10 @@ Windows users with not enough RAM (8GB of RAM or less) can choose to set up thei
 
 Set up the Linux machine including an IDE, and Linux tools, ... Don't install your IDE on your Windows host machine.
 
-## 4. Node.js installation (medium level)
+## Part 4. Node.js installation (medium level)
 
 Install Node.js with n-install
-
-```bash
+```
 sudo apt update
 sudo apt install build-essential git curl
 curl -L https://git.io/n-install | bash
@@ -64,7 +58,9 @@ curl -L https://git.io/n-install | bash
 
 **Don't install Node.js with your package manager.**
 
-## 5. Feed yourself (medium level)
+For those choosing the Windows path, you can stick with the official installer.
+
+## Part 5. Feed yourself (medium level)
 
 Here are the tutorials and resources to study:
 
@@ -77,7 +73,7 @@ Here are the tutorials and resources to study:
 
 The good general source of learning, including HTML, CSS, and JavaScript:
 
-* [Kahn academy](https://www.khanacademy.org/)  
+* [Kahn academy](https://www.khanacademy.org/)   
   Free, it is a non-profit relying on donations.
-* [Codecademy](https://www.codecademy.com)  
+* [Codecademy](https://www.codecademy.com)   
   Free with a commercial offering.

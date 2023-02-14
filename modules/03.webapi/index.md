@@ -170,11 +170,10 @@ describe('User', function () {
 
 ## Assertion styles
 
-
 `assert`:
 
 ```js
-var assert = chai.assert
+const assert = chai.assert
 
 assert.typeOf(foo, 'string')
 assert.equal(foo, 'bar')
@@ -200,11 +199,11 @@ tea.should.have.property('flavors')
 ```js
 const expect = chai.expect
 
-expect(foo).to.be.a('string');
-expect(foo).to.equal('bar');
-expect(foo).to.have.lengthOf(3);
+expect(foo).to.be.a('string')
+expect(foo).to.equal('bar')
+expect(foo).to.have.lengthOf(3)
 expect(tea).to.have.property('flavors')
-  .with.lengthOf(3);
+  .with.lengthOf(3)
 ```              
 
 ## Test writing best practices
