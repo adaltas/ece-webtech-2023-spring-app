@@ -305,7 +305,3 @@ try{
   * Installation instructions 
   * Usage instruction with simple (and advanced) examples
   * List of contributors
-
-[Learn Markdown](https://www.markdownguide.org/)
-
-[How to write README](https://dev.to/scottydocs/how-to-write-a-kickass-readme-5af9)
