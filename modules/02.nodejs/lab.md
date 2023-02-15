@@ -93,7 +93,7 @@ Commit changes to the Git repository:
 ```bash
 cat <<EOF >.gitignore
 .*
-node_modules
+/node_modules
 !.gitignore
 EOF
 git add .
@@ -189,7 +189,7 @@ Read and understand each line in this code using the [`http` Node.js official mo
 Run the command:
 
 ```bash
-npm start
+npm run start
 ```
 
 It will start a web server accessible on http://localhost:8080:

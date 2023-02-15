@@ -1,307 +1,430 @@
 ---
-duration: 1h
+duration: 2h
 ---
 
-# Getting started with Node.js
+# Lab: getting started with Node.js & Git
 
-The course starts with a brief overview of Node.JS, its usage, strengths, and ecosystem with NPM and YARN. It continues with a quick getting started to get a script up and running introducing the concepts of modules and packages.
+## Objectives
 
-We will finally initiate the use of git and GitHub. We'll also cover package best practices to respect Node.JS conventions for packaging with executables dependencies, and unit tests and then introduce the use of external libraries.
+- Getting up and ready with Node.js
+- Project and repository initialization
+- Web server in Node.js
 
-## JavaScript
+## Tasks
 
-* Developed in 1995 at Netscape
-* Shipped with IE3 in 1996 as JScript
-* Standardized with EcmaScript (ES) v1 in 1997   
-  https://en.wikipedia.org/wiki/ECMAScript
-* No relation to Java
-* Rediscovered with Ajax around 2005 (Gmail, Maps…)
-* Multi-paradigm: scripting, object-oriented, functional, imperative, event-driven
-* One of the most popular languages today
-* Fast
+1. Start a project
+2. Create a simple Node.js script 
+3. Create a simple HTTP server
+4. Integrate Nodemon
+5. Create a basic application with multiple routes
+6. Reading from a JSON file
+7. Publish your project to GitHub
 
-## Node.JS
+## Notes
 
-* JavaScript runtime for server-side scripting   
-  https://nodejs.org/en/
-* Created in 2009 by Ryan Dahl, now working on Deno   
-  https://deno.land/
-* Uses Google's V8 JavaScript Engine   
-  https://v8.dev/
-* Package management using NPM   
-  https://www.npmjs.com/
-* Asynchronous IO
-* Unix philosophy of small components
+The lab starts a new Node.js project which serves as the basis for the following courses. Every week, incremental features are completed toward the creation of a working application.
 
-## NPM 
+In the end, it becomes the basis for your final project. The final grade reflects the delivered project, as well as its Git history.
 
-* Package manager for Node.JS
-* Developed by Isaac Z. Schlueter
-* Upload, share & download packages
-* Two modes: global & local
-* Modules: system I/O, networking, cryptography, framework, …
-* [npmjs.com](http://npmjs.com)
+## Before starting
 
-## Yarn
+1. Install an **IDE or a text editor**, for example, [Atom](https://atom.io/) or [VS Code](https://code.visualstudio.com/).
+2. Install **Git**, use for installation:
+  - Windows: https://gitforwindows.org/
+  - Linux: https://git-scm.com/download/linux
+  - macOS: https://git-scm.com/download/mac   
+3. Install **Node.js** by referring the [prerequisites](../01.prerequisite/index.md#nodejs-installation).
+4. Open a command-line interface:
+  - macOS or Linux: use **Terminal**
+  - Windows: use **Git Bash** (should be installed when installing Git). **Note!** Don't use default *CMD.exe*, because it has different commands from a command line of the Linux OS, which is used in most IT environments.
 
-* Alternative package manager for Node.JS
-* Developed & open-sourced by Facebook
-* Introduced novelties recuperated by NPM v4 & 5
-* Equivalent nowadays
+## Part 1. Start a project
 
-[Read the official website](https://yarnpkg.com/)
+### 1. Choose a working directory (easy level)
 
-## Node.js package
+Using **CLI bash commands** in your terminal (Terminal or Git Bash) navigate to the directory where you will store your project folder.
 
-* It declares a module
-* A file or directory described by a `package.json` file
-* Can be private or public
-
-## Dependency management in Node.js
-
-* Download and install existing packages 
-* State versions used by your app
-* Not reinvent the wheel
-* Participate in the community of Node.js
-
-## Install dependencies
-
-* Add using `npm` / `yarn` / `package.json` (manual)
-* Specify a version
-* Install locally or globally
-
-```shell
-# with NPM
-npm i[nstall] [--save] [--save-dev] [-g] package_name
-
-# with Yarn
-yarn add package_name [--dev]
-```
-
-* Installation location: `./node_modules` folder
-
-## Node.js module
-
-* What we call a library in other languages 
-* One or more `.js` files doing something
-* Module content is "exported"
-
-[Read more about Node.js packages and modules](https://docs.npmjs.com/about-packages-and-modules)
-
-## CommonJS module `.cjs`
-
-* Use
-  ```javascript
-  module.exports = ...
-  ```
-
-* Export anything: a function, an array, an object...
-  ```javascript
-  // for an object
-  module.exports = {
-    a: ...,
-    b: ...
-  }
-  // or 
-  module.exports.a = ...
-  module.exports.b = ...
-  ```
-
-* Import in another file: (NB: **no extension**)
-  ```javascript
-  const my_mod = require('mypath/to/my_file')
-  ```
-
-## ECMAScript modules (ESM) `.mjs`
-
-* Use
-
-  ```js
-  export default my_obj
-  export {my_prop}
-  ```
-
-* Import in another file
-
-  ```js
-  import my_obj from '/path/to/file.js'
-  # or
-  import {my_prop} from '/path/to/file.js'
-  ```
-
-## `package.json` file
-
-It stores a module's information:
-
-* `name`, `description`, `version`, `license` and `private`
-* `dependencies` and `devDependencies`
-* scripts and commands
-```json
-{
-  "name": "ece-webtech",
-  "description": "Node.js project for ECE class",
-  "version": "0.0.0",
-  "license": "UNLICENSED",
-  "private": false,
-  "dependencies": {},
-  "devDependencies": {}
-}
-```
-
-## Module declaration
-
-Interactive `package.json` creation with:
-
-```shell
-npm init
-yarn init
-```
-
-## Dependencies declaration
-
-* `dependencies`: necessary to make your app run   
-  ```js
-  { "dependencies": {
-    "foo": "1.0.0", // Version 1.0.0 exactly
-    "tilde": "~1.0.0", // Major and minor versions must match
-    "caret": "^1.0.0", // Default, major version must match
-    "bar": ">1.0.0", // Any superior to 1.0.0
-    "baz": "1.2.x", // Any 1.2 version
-    "boo": "owner/repo", // The GitHub project repo from owner
-    "asd": "[git url]", // The module in the given repo
-    "local": "file:/path/to/file",
-    "tar": "http://web.site/my.tar.gz"
-  }}
-  ```
-  
-* `devDependencies`: only necessary for development (test runners, documentation framework, ...)
-
-[package.json doc](https://docs.npmjs.com/files/package.json)
-
-## Versioning with Semver
-
-* [Semantic Versionning](https://semver.org/)
-* Version `X.Y.Z`
-  - `X` = Major, breaking changes
-  - `Y` = Minor, new features and backward compatible 
-  - `Z` = Patch, bug fixing
-* Version `0.Y.Z` = unitial dev, unstable
-
-## Deterministic installs with lock files
-
-* `package-lock.json` for NPM 
-* `yarn.lock` for YARN
-* Fixes dependency versions
-* Avoids the **"but it works on my computer!"** situation
-
-## Asynchronous programming
-
-* Use only one core CPU
-* No CPU waiting during IO operations (network, file system access)
-* Maximize CPU usage
-* More efficient than multi-threading
-* Prevents any blocking
-* Allows other code to be run in the meantime
-* JavaScript native
-
-### Callback functions 
-
-A function is called at the completion of a given task
-
-[Read more about callback functions](https://nodejs.org/en/knowledge/getting-started/control-flow/what-are-callbacks/)
+[Learn basic CLI bash commands](https://www.educative.io/blog/bash-shell-command-cheat-sheet)
 
 Example:
 
-```js
-function login (username, password, callback) {
-  db
-  .query(`SELECT ${username} FROM users WHERE password = ${password}`)
-  .execute( (err, results) => {
-    callback(err, results.length : true : false)
-  })
-}
-// Execute a function with a callback argument
-login(username, password, function(err, success) {
-  console.log(success ? "Logged in" : "Invalid credentials")
-})
+```bash
+cd ~/path/to/your-root-project-directory
 ```
 
-### Promise object
+### 2. Create a project folder (easy level)
 
-An object is returned with the possibility to register callback functions on success and on error. It is designed to avoid spaghetti callback hell.
+Choose a name for your project (for example, `my-project`) and create a directory:
 
-```js
-function login (username, password) {
-  return new Promise(resolve, reject) => {
-    db
-    .query(`SELECT ${username} FROM users WHERE password = '${password}'`) // don't ever do this
-    .execute( (err, results) => {
-      err ? reject(err) : resolve(results.length : true : false)
-    })
-  })
-}
-// Execute a function returning a promise
-login(username, password)
-.then(function(success) => {
-  console.log(success ? "Logged in" : "Invalid credentials")
-})
-.catch(function(err){
-  console.error(err.message)
-})
+```bash
+mkdir my-project
 ```
 
-### Async/await syntax
+> **Note!** Don't put spaces (` `) ether in folder names or file names. Otherwise, you will have to use escape characters when navigating to them. Use the "kebab-case" naming convention by separating words with dashes (`-`).
 
-Syntactic sugar on top of the promise object.
+Then navigate to this directory:
+
+```bash
+cd my-project
+```
+
+### 3. Initialize a [Git repository](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository) (easy level)
+
+```bash
+git init
+```
+
+### 4. Initialize a Node.js package (easy level)
+
+Initialize a Node.js package running this command:
+
+```bash
+npm init -y
+```
+
+This will create an initial `package.json` file with the package description. Later, you can manually modify the content respecting the [JSON format](https://en.wikipedia.org/wiki/JSON). For example, these values:
+  - `author`
+  - `description`
+
+### 5. Commit changes (easy level)
+
+Commit changes to the Git repository:
+
+```bash
+cat <<EOF >.gitignore
+.*
+/node_modules
+!.gitignore
+EOF
+git add .
+git commit -m "chore: initial"
+```
+
+> Note! Why `chore:` is in the commit message? Learn and always follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification to write proper commit messages. It will provide you with more efficiency when building real applications, read more about the usage of Conventional Commits in [this article](https://www.adaltas.com/en/2021/02/02/js-monorepos-commits-changelog/).
+
+## Part 2. Create a simple Node.js script 
+
+### 1. Start working with a text editor (easy level)
+
+Now, we start using a text editor or IDE (Atom, VS Code, WebStorm, or up to your choice). 
+
+Open a project folder in your editor. You also can use bash commands for opening it. Being under the root of the project directory, run one of the commands:
+
+```bash
+# For VS Code
+code .
+# For Sublime Text
+subl .
+# For power users
+vim .
+```
+
+### 2. Create a script (easy level)
+
+Create a file `index.js` with the following content:
 
 ```js
-function async login (username, password) {
-  return new Promise(resolve, reject) => {
-    db
-    .query(`SELECT ${username} FROM users WHERE password = ${password}`) // don't ever do this
-    .execute( (err, results) => {
-      err ? reject(err) : resolve(results.length : true : false)
-    })
-  })
-}
-// Execute a function returning a promise
-try{
-  const success = await login(username, password)
-  console.log(success ? "Logged in" : "Invalid credentials")
-}catch(err){
-  console.error(err.message)
+console.log("Hello Node.js!")
+```
+
+Run the Node.js script in the terminal:
+
+```bash
+node index.js
+```
+
+It will print the message `Hello Node.js!`.
+
+### 3. Define an NPM script (medium level)
+
+Add the script `start` to the `package.json` file like this:
+
+```json
+{
+  ...
+  "scripts": {
+    "start": "node index.js"
+  },
+  ...
 }
 ```
 
-## Routing
+Run the NPM script with the command:
 
-* Define endpoints to serve multiple pages 
-* A route = an URL [+ parameters] + a handler
-* Use Node.js native `url` module to parse `req.url`
+```bash
+npm run start
+# or
+npm start
+```
 
-## Query parameters
+It will do the same as in step 2.
 
-* Web URL can be enriched with query parameters
-* After the `?`
-* Separated by `&`
-* Formatted as `key=value`
-  ```
-  http://my.site/my/page.html?username=toto&password=lulu
-  ```
-* Parseable with node's `querystring` module on URL's query property
+## Part 3. Create an HTTP server
 
-## Nodemon
+### 3.1. Create an HTTP server (medium level)
 
-* [Nodemon](https://www.npmjs.com/package/nodemon) - is a simple utility
-* Watches your development files
-* Restarts the server on saving
-* No need to restart the server manually
+Modify the `index.js` file with the following content
 
-## Presenting your work with the `README.md` file
+```javascript
+// Import a module
+const http = require('http')
 
-* Written in Markdown
-* Should contain:
-  * Short introduction
-  * Installation instructions 
-  * Usage instruction with simple (and advanced) examples
-  * List of contributors
+// Declare an http server
+http.createServer(function (req, res) {
+
+  // Write a response header
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+
+  // Write a response content
+  res.end('Hello World\n')
+
+// Start the server
+}).listen(8080)
+```
+
+Read and understand each line in this code using the [`http` Node.js official module documentation](https://nodejs.org/api/http.html). 
+
+### 3.2. Run HTTP server (medium level)
+
+Run the command:
+
+```bash
+npm run start
+```
+
+It will start a web server accessible on http://localhost:8080:
+- open it in a browser
+- or `curl localhost:8080` in a terminal to get the home page content
+
+### 3.3. Define callback function (hard level)
+
+Rewrite the code to define a callback function
+
+```javascript
+const serverHandle = function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+  res.end('Hello World\n')
+}
+
+http
+.createServer(serverHandle)
+.listen(8080)
+```
+
+Don't forget to restart the server. To terminate a blocking process in the terminal use the combination of keys `Ctrl + C`. Start it again with `npm start`.
+
+### 3.4. Sending back HTML (hard level)
+
+Change the content type & response content:
+
+```javascript
+// Define a string constant concatenating strings
+const content = '<!DOCTYPE html>' +
+'<html>' +
+'    <head>' +
+'        <meta charset="utf-8" />' +
+'        <title>ECE AST</title>' +
+'    </head>' + 
+'    <body>' +
+'       <p>Hello World!</p>' +
+'    </body>' +
+'</html>'
+
+const serverHandle = function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/html'})
+  res.write(content)
+  res.end()
+}
+
+http
+.createServer(serverHandle)
+.listen(8080)
+```
+
+### 3.5. Get the current path (medium level)
+
+Enrich the previous code with the following: 
+
+```javascript 
+...
+// Import Node url module
+const url = require('url')
+
+const serverHandle = function (req, res) {
+  // Retrieve and print the current path
+  const path = url.parse(req.url).pathname
+  console.log(path)
+
+  res.writeHead(200, {'Content-Type': 'text/html'})
+  res.write(path)
+  res.end()
+}
+
+http
+.createServer(serverHandle)
+.listen(8080)
+```
+
+Access to your local website by different URLs like `localhost:8080` and `localhost:8080/my/path` and see what is printed in the terminal.
+
+### 3.6. Get query parameters (medium level)
+
+Enrich the previous code with the following:
+
+```javascript 
+const url = require('url')
+const qs = require('querystring')
+
+const serverHandle = function (req, res) {
+  // Retrieve and print the queryParams
+  const queryParams = qs.parse(url.parse(req.url).query)
+  console.log(queryParams)
+
+  res.writeHead(200, {'Content-Type': 'text/html'})
+  res.write(content)
+  res.end()
+}
+
+http
+.createServer(serverHandle)
+.listen(8080)
+```
+
+Access your local website by different URLs like `localhost:8080/?name=John&email=john@email.com`, and see what is printed in the terminal.
+
+### 3.7. Basic routing example (hard level)
+
+Enrich the previous code with the following:
+
+```javascript 
+const url = require('url')
+const qs = require('querystring')
+
+const serverHandle = function (req, res) {
+  const route = url.parse(req.url)
+  const path = route.pathname 
+  const params = qs.parse(route.query)
+
+  res.writeHead(200, {'Content-Type': 'text/plain'})
+
+  if (path === '/hello' && 'name' in params) {
+    res.write('Hello ' + params['name'])
+  } else {
+    res.write('Hello anonymous')
+  }
+  
+  res.end()
+}
+```
+
+Access to your local website by different URLs like `localhost:8080/hello?name=John`.
+
+### 3.8. Organize the source code in a module (hard level)
+
+Create `handles.js` and `index.js` files and reorganize the previous code like:
+
+```javascript
+// ./handles.js
+// Necessary imports
+module.exports = {
+  serverHandle: function (req, res) {
+    // ...
+  } 
+}
+```
+
+```javascript 
+// ./index.js
+const http = require('http')
+const handles = require('./handles')
+
+http
+.createServer(handles.serverHandle)
+.listen(8080)
+```
+
+## Part 4. Integrate Nodemon
+
+Tired of restarting your webserver after every modification of the source code? Let's fix it!
+
+### 4.1. Install Nodemon (easy level)
+
+Run: 
+
+```bash
+npm install nodemon
+# or
+yarn add nodemon
+# then
+npx nodemon index.js
+# npx avoids running `./node_modules/.bin/nodemon index.js`
+```
+
+Now, it will restart the web server when the file is updated. There is no need to restart it manually to apply modifications of code. Just refresh the page in a browser.
+
+> Note! Don't forget to define a `.gitignore` to prevent committing the `node_modules` folder.
+
+### 4.2. Define an NPM script in `package.json` (easy level)
+
+Enrich your `scripts` in `package.json` with:
+
+```json
+"scripts": {
+  ...
+  "dev": "nodemon index.js"
+  ...
+}
+```
+
+And then always run when developing:
+
+```bash
+npm run dev
+```
+
+## Part 5. Create a basic application with multiple routes (hard level)
+
+Create an application with 3 routes:
+
+1. `/` explains how `/hello` works (containing the links)
+2. `/hello` takes a `name` query parameter and:
+  - random names reply `hello [name]`
+  - your own name replies with a short intro of yourself
+3. Any other path replies a 404 code with a not found message
+
+## Part 6. Reading from a JSON file
+
+1. Create a subfolder with the name `content` and create a JSON file `about.json` inside it with the example content like this:
+
+```json
+{
+  "title": "About",
+  "content": "Example content here.",
+  "author": "Your Name",
+  "date": "27/09/2022"
+}
+```
+
+2. Create the route `/about` displaying the content of this JSON file:
+
+- use `require()` method to access a file
+- chose a proper `Content-Type` for displaying JSON
+
+3. Create dynamic routing.
+
+Parse the path and verify if a JSON file exists in the `content` folder. If yes, print its content. If no, redirect to the 404 error page.
+
+## Part 7. Publish your project to GitHub
+
+### 7.1. Document your project (medium level)
+
+Add a `README.md` file with a title, an introduction, running/usage instructions, and your name.
+
+### 7.2. Push it to GitHub (medium level)
+
+Commit your changes, use your **PRIVATE** group repository on GitHub, and push it.
+
+## Part 8. Cultivate yourself
+
+- [Learn Markdown](https://www.markdownguide.org/)
+- [How to write README](https://dev.to/scottydocs/how-to-write-a-kickass-readme-5af9)
